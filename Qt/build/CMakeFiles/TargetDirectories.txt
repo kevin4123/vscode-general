@@ -1,0 +1,5 @@
+C:/Users/ch180/Desktop/qt/template/build/CMakeFiles/helloworld.dir
+C:/Users/ch180/Desktop/qt/template/build/CMakeFiles/edit_cache.dir
+C:/Users/ch180/Desktop/qt/template/build/CMakeFiles/rebuild_cache.dir
+C:/Users/ch180/Desktop/qt/template/build/CMakeFiles/helloworld_autogen_timestamp_deps.dir
+C:/Users/ch180/Desktop/qt/template/build/CMakeFiles/helloworld_autogen.dir

@@ -1,0 +1,63 @@
+{
+    /*General settings*/
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",           // 显示活跃的括号连线
+    "editor.guides.bracketPairsHorizontal": true,     // 横向也显示
+    "editor.guides.highlightActiveBracketPair": true,  // 高亮当前括号对
+    "editor.mouseWheelZoom": true,
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+	/*terminal*/
+	"terminal.integrated.profiles.windows": {
+		"MSVC x64": {
+			"path": "cmd.exe",
+			"args": ["/k", "D:\\MSCV2022\\VC\\Auxiliary\\Build\\vcvars64.bat"]
+		},
+		"MSVC x86":{
+			"path": "cmd.exe",
+			"args": ["/k", "D:\\MSCV2022\\VC\\Auxiliary\\Build\\vcvars32.bat"]
+		},
+		"QT6_MSVC_x64": {
+			"path": "cmd.exe",
+			"args": ["/k", "D:\\Qt\\6.9.2\\msvc2022_64\\bin\\qtenv2.bat && D:\\MSCV2022\\VC\\Auxiliary\\Build\\vcvars64.bat"]
+		},
+
+	},
+    /*fittencode*/
+    "fittencode.languagePreference.displayPreference": "en",
+    "fittencode.languagePreference.commentPreference": "en",
+    "fittencode.selection.showCodeLens": false,
+    /*clangd*/
+    "clangd.arguments": [
+        "--compile-commands-dir=build"
+    ],
+	"clangd.fallbackFlags": [
+	],
+    /*hex editor*/
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "explorer.confirmDelete": false,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+        "*.bin": "hexEditor.hexedit",
+        "*.elf": "hexEditor.hexedit",
+        "*.o": "hexEditor.hexedit"
+    },
+    /*C/C++ settings*/
+    "C_Cpp.intelliSenseEngine": "disabled",
+    /*cortex-debug*/
+    "cortex-debug.openocdPath": "D:/openOCD/openocd/bin/openocd.exe",
+                            // "cortex-debug.armToolchainPath.linux": "/opt/toolchains/gcc-arm- none-eabi-10.3-2021.10/bin",
+    "cortex-debug.armToolchainPath.windows": "D:/arm-gnu-toolchain/arm-gnu-toolchain/bin",
+                            // "cortex-debug.gdbPath.linux": "/opt/toolchains/gcc-arm-none-eabi-10.3-2021.10/bin//arm-none-eabi-gdb",
+    "cortex-debug.gdbPath.windows": "D:/arm-gnu-toolchain/arm-gnu-toolchain/bin/arm-none-eabi-gdb.exe",
+	"digital-ide.welcome.show": false,
+	"qtConfigure.qtDir": "d:\\QT\\qtWin",
+		
+}
+
+
