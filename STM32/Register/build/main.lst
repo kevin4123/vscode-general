@@ -1,0 +1,60 @@
+ARM GAS  C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "main.c"
+  18              		.section	.text.main,"ax",%progbits
+  19              		.align	1
+  20              		.global	main
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	main:
+  26              	.LFB29:
+   1:main.c        **** #include "stm32f10x.h"
+   2:main.c        **** 
+   3:main.c        **** 
+   4:main.c        **** int main(void) {
+  27              		.loc 1 4 16 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.L2:
+   5:main.c        **** 	int a =	HSI_VALUE;
+   6:main.c        **** 
+   7:main.c        **** 
+   8:main.c        ****     while (1);  
+  33              		.loc 1 8 5 view .LVU1
+  34              		.loc 1 8 11 view .LVU2
+  35 0000 FEE7     		b	.L2
+  36              		.cfi_endproc
+  37              	.LFE29:
+  39              		.text
+  40              	.Letext0:
+  41              		.file 2 "D:/arm-gnu-toolchain/arm-gnu-toolchain/arm-none-eabi/include/machine/_default_types.h"
+  42              		.file 3 "D:/arm-gnu-toolchain/arm-gnu-toolchain/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s:19     .text.main:00000000 $t
+C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s:25     .text.main:00000000 main
+
+NO UNDEFINED SYMBOLS

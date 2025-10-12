@@ -1,9 +1,0 @@
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb --specs=nano.specs -g -c Cordic.o -I ./include ./src/Cordic.c
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb --specs=nano.specs -g -c LED.o -I ./include ./src/LED.c
-
-arm-none-eabi-g++ -mcpu=cortex-m3 -mthumb -Wl,-Map,LED.map -g --specs=nano.specs -nostartfiles -T section.ld LED.o Cordic.o -o LED.elf
-arm-none-eabi-objcopy -O ihex -g -S -R .comment -R .ARM.attributes -R .data.impure_ptr LED.elf LED.hex
-arm-none-eabi-size -B LED.
-arm-none-eabi-objdump -D -S LED.elf > LED.s
-arm-none-eabi-addr2line -fpae LED.elf 20000079
-arm-none-eabi-ld --verbose > default.txt

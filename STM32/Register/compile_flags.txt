@@ -1,0 +1,4 @@
+-DSTM32F10X_MD
+-IC:/Users/ch180/Desktop/stm32_register/CMSIS/CM3/DeviceSupport/ST/STM32F10x
+-IC:/Users/ch180/Desktop/stm32_register/CMSIS/CM3/CoreSupport
+-IC:/Users/ch180/Desktop/stm32_register/Driver/BSP
