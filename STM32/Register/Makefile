@@ -126,7 +126,7 @@ C_INCLUDES =  \
 
 
 # compile gcc flags
-# Warn All (-Wall)
+# Basic common warnings. (-Wall)
 # Place each function or data item into its own section in the output file (-fdata-sections -ffunction-sections)
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
@@ -140,7 +140,7 @@ endif
 
 
 # generate dependency information, not include system header files(-MMD)
-# add a phony target for each dependency other than the main file (-MP)
+# Add phony targets for each dependency in the generated .d file (-MP)
 #  specifies a file to write the dependencies to (-MF)
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"		# pattern substitution
 

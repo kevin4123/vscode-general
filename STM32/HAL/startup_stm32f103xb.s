@@ -57,28 +57,28 @@ defined in linker script */
 
   .section .text.Reset_Handler		
   .weak Reset_Handler
-  .type Reset_Handler, %function		# bit 0 = 1 for Thumb mode
+  .type Reset_Handler, %function		/* bit 0 = 1 for Thumb mode */
 Reset_Handler:
 
 /* Call the clock system initialization function.*/
     bl  SystemInit
 
 /* Copy the data segment initializers from flash to SRAM */
-  ldr r0, =_sdata		# pseudo-instruction for current address
+  ldr r0, =_sdata		/* pseudo-instruction for current address */
   ldr r1, =_edata
   ldr r2, =_sidata
   movs r3, #0
-  b LoopCopyDataInit	# relative branch,don't need care LoopCopyDataInit bit 0 is 1 or 0
+  b LoopCopyDataInit	/* relative branch,don't need care LoopCopyDataInit bit 0 is 1 or 0 */
 
 CopyDataInit:			
-  ldr r4, [r2, r3]		# r4 = *(r2 + r3)
-  str r4, [r0, r3]		# *(r0 + r3) = r4
-  adds r3, r3, #4		# r3 = r3 + 4, next word
+  ldr r4, [r2, r3]		/* r4 = *(r2 + r3) */
+  str r4, [r0, r3]		/* *(r0 + r3) = r4 */
+  adds r3, r3, #4		/* r3 = r3 + 4, next word */
 
 LoopCopyDataInit:		
-  adds r4, r0, r3		# r4 = r0 + r3
-  cmp r4, r1			# if r4 < r1 then branch to CopyDataInit
-  bcc CopyDataInit		# else continue
+  adds r4, r0, r3		/* r4 = r0 + r3 */
+  cmp r4, r1			/* if r4 < r1 then branch to CopyDataInit */
+  bcc CopyDataInit		/* else continue */
   
 /* Zero fill the bss segment. */
   ldr r2, =_sbss		
@@ -99,7 +99,7 @@ LoopFillZerobss:
 /* Call the application's entry point.*/
   bl main
   bx lr			
-.size Reset_Handler, .-Reset_Handler		# set size of Reset_Handler
+.size Reset_Handler, .-Reset_Handler		/* set size of Reset_Handler */
 
 /**
  * @brief  This is the code that gets called when the processor receives an
@@ -109,7 +109,7 @@ LoopFillZerobss:
  * @param  None
  * @retval : None 
 */
-    .section .text.Default_Handler,"ax",%progbits	# progbits opposite nobits
+    .section .text.Default_Handler,"ax",%progbits	/* progbits opposite nobits */
 Default_Handler:
 Infinite_Loop:
   b Infinite_Loop
@@ -121,15 +121,15 @@ Infinite_Loop:
 * 0x0000.0000.
 *
 ******************************************************************************/
-  .section .isr_vector,"a",%progbits	# progbits opposite nobits
+  .section .isr_vector,"a",%progbits	/* progbits opposite nobits */
   .type g_pfnVectors, %object
   .size g_pfnVectors, .-g_pfnVectors
 
 
 g_pfnVectors:
 
-  .word _estack							# Top of Stack
-  .word Reset_Handler					# Reset Handler
+  .word _estack							/* Top of Stack */
+  .word Reset_Handler					/* Reset Handler */
   .word NMI_Handler
   .word HardFault_Handler
   .word MemManage_Handler
@@ -206,7 +206,7 @@ g_pfnVectors:
 *******************************************************************************/
 
   .weak NMI_Handler
-  .thumb_set NMI_Handler,Default_Handler	# set weak alias,bit 0 = 1 for Thumb mode
+  .thumb_set NMI_Handler,Default_Handler	/* set weak alias,bit 0 = 1 for Thumb mode */
 
   .weak HardFault_Handler
   .thumb_set HardFault_Handler,Default_Handler

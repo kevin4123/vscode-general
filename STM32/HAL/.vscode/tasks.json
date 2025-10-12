@@ -70,7 +70,7 @@
       "args": [
         "-f", "interface/stlink.cfg",   //修改
         "-f", "target/stm32f1x.cfg",    //修改
-        "-c", "program build/<filename>.elf verify reset exit"  //修改
+        "-c", "program build/Debug/App.elf verify reset exit"  //修改
       ],
       "group": {
         "kind": "build",

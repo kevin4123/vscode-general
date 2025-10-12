@@ -38,6 +38,29 @@ BUILD_DIR = build
 C_SOURCES =  \
 main.c \
 CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c \
+STM32F10x_StdPeriph_Driver/src/misc.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_can.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_cec.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_crc.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_i2c.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_sdio.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.c \
+STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c \
 # CMSIS/CM3/CoreSupport/core_cm3.c \
 # Core/Src/main.c \
 # Core/Src/stm32f1xx_it.c \
@@ -107,7 +130,7 @@ AS_DEFS =
 # C defines
 C_DEFS =  \
 -DSTM32F10X_MD \
-# -DUSE_HAL_DRIVER
+-DUSE_STDPERIPH_DRIVER
 
 # AS includes
 AS_INCLUDES = 
@@ -117,7 +140,8 @@ C_INCLUDES =  \
 -ICMSIS/CM3/CoreSupport \
 -ICMSIS/CM3/DeviceSupport/ST/STM32F10x \
 -IDriver/BSP \
--IUser 
+-IUser \
+-ISTM32F10x_StdPeriph_Driver/inc \
 # -ICore/Inc \
 # -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 # -IDrivers/STM32F1xx_HAL_Driver/Inc \
@@ -126,7 +150,7 @@ C_INCLUDES =  \
 
 
 # compile gcc flags
-# Warn All (-Wall)
+# Basic common warnings. (-Wall)
 # Place each function or data item into its own section in the output file (-fdata-sections -ffunction-sections)
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
