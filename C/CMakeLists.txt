@@ -1,38 +1,115 @@
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-cmake_minimum_required(VERSION 3.16)  
+########################################
+# mkdir build
+# cd build
+########################################
+# cmake -S .. -B . -G "Ninja"
+# cmake --build .			|			ninja -v
+#+++++++++++++++++++++++++++++++++++++++
+# cmake -S .. -B . -G "MinGW Makefiles"
+# cmake --build .			|			mingw32-make VERBOSE=1
+########################################
+cmake_minimum_required(VERSION 3.20)		# Minimum version of CMake required
 
-project(MyProject LANGUAGES C CXX RC)		#resource file support
+# Setup compiler settings
+# Set C standard
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)		# make compiler fail if C standard is not met
+set(CMAKE_C_EXTENSIONS ON)				# enable C language extensions
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)		# make compiler fail if C++ standard is not met
+set(CMAKE_CXX_EXTENSIONS ON)			# enable C++ language extensions
 
-set(CMAKE_CXX_STANDARD 17)            	
-set(CMAKE_CXX_STANDARD_REQUIRED ON)  
-set(CMAKE_CXX_EXTENSIONS OFF)    
+# Define the build type
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug")
+endif()
+
+# Set the project name
+set(CMAKE_PROJECT_NAME App)
+
+# Include toolchain file
+#include()
+
+# Enable compile command to ease indexing with e.g. clangd
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+
+# Core project settings
+project(${CMAKE_PROJECT_NAME} VERSION 1.0 LANGUAGES C CXX)				# add 'RC' for resource files (windows)
+message("Build type: " ${CMAKE_BUILD_TYPE})
 
 
-include_directories(
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/include/third_party
-)
+########################################
+# EXECUTABLE
+########################################
 
-file(GLOB_RECURSE PROJECT_SOURCES
-    ${PROJECT_SOURCE_DIR}/src/*.c
-    ${PROJECT_SOURCE_DIR}/src/*.cpp
+# add the executable
+add_executable(${CMAKE_PROJECT_NAME})
+
+# add subdirectories
+#include()
+
+# Add sources to executable
+target_sources(${CMAKE_PROJECT_NAME}
+PRIVATE
 	main.cpp
+PUBLIC
+INTERFACE
 )
 
-file(GLOB_RECURSE THIRD_PARTY_SOURCES
-    ${PROJECT_SOURCE_DIR}/src/third_party/*.c
-    ${PROJECT_SOURCE_DIR}/src/third_party/*.cpp
+# Add sources to executable
+target_sources(${CMAKE_PROJECT_NAME}
+PRIVATE
+PUBLIC
+INTERFACE
 )
 
-set(ALL_SOURCES ${PROJECT_SOURCES} ${THIRD_PARTY_SOURCES})
+# Add project symbols (macros)
+target_compile_definitions(${CMAKE_PROJECT_NAME}
+PRIVATE
+PUBLIC
+INTERFACE
+)
 
+# Add include paths
+target_include_directories(${CMAKE_PROJECT_NAME}
+PRIVATE
+PUBLIC
+INTERFACE
+)
 
-add_executable(App ${ALL_SOURCES})
-#GUI application on Windows
-set_target_properties(App PROPERTIES WIN32_EXECUTABLE ON)
-#compiler option
+# Link directories setup: rarely needed
+target_link_directories(${CMAKE_PROJECT_NAME}
+PRIVATE
+PUBLIC
+INTERFACE
+)
+
+# Add linked libraries
+target_link_libraries(${CMAKE_PROJECT_NAME}
+PRIVATE
+PUBLIC
+INTERFACE
+)
+
+set_target_properties(${CMAKE_PROJECT_NAME}
+PROPERTIES 
+	WIN32_EXECUTABLE ON
+)
+
 target_compile_options(App
-	PRIVATE
+PRIVATE	
 	$<$<CXX_COMPILER_ID:MSVC>:/DUNICODE>
+PUBLIC
+INTERFACE
 )
 
+########################################
+# DEBUG
+########################################
+
+# Enable debug output of target properties
+# set(CMAKE_DEBUG_TARGET_PROPERTIES 
+#   INCLUDE_DIRECTORIES 
+#   INTERFACE_INCLUDE_DIRECTORIES
+# )

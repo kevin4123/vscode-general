@@ -2,14 +2,10 @@ import os
 
 # 目录列表
 directories = [
-    'src',
-    'src/third_party',
 	'build',
+    'cmake',
 	'include',
-	'include/third_party',
 	'lib',
-	'lib/third_party',
-	'templates',
 	'test',
 ]
 
