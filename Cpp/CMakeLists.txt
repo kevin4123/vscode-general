@@ -92,12 +92,12 @@ PUBLIC
 INTERFACE
 )
 
-set_target_properties(${CMAKE_PROJECT_NAME}
-PROPERTIES 
-	# WIN32_EXECUTABLE ON
-)
+# set_target_properties(${CMAKE_PROJECT_NAME}
+# PROPERTIES 
+# 	WIN32_EXECUTABLE ON
+# )
 
-target_compile_options(App
+target_compile_options(${CMAKE_PROJECT_NAME}
 PRIVATE	
 	# $<$<CXX_COMPILER_ID:MSVC>:/DUNICODE>
 PUBLIC
