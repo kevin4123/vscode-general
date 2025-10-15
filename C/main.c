@@ -1,5 +1,4 @@
 #include <windows.h>
-#include <winuser.h>
 
 int main()
 {

@@ -52,7 +52,7 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME}
 PRIVATE
-	main.c
+	main.cpp
 PUBLIC
 INTERFACE
 )
