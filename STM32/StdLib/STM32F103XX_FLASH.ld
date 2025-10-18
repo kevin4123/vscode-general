@@ -179,13 +179,13 @@ SECTIONS
     . = ALIGN(4);
     _ebss = .;         /* define a global symbol at bss end */
     __bss_end__ = _ebss;
-  } >RAM
+  } >RAM				/* do not need load to flash */
 
   /* User_heap_stack section, used to check that there is enough RAM left */
-  ._user_heap_stack :
+  ._user_heap_stack :	/* heap and stack in RAM */
   {
     . = ALIGN(8);
-    PROVIDE ( end = . );
+    PROVIDE ( end = . );	/* PROVIDE mean if user already define it, use user defined,other wise use linker defined */
     PROVIDE ( _end = . );
     . = . + _Min_Heap_Size;
     . = . + _Min_Stack_Size;

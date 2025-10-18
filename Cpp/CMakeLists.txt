@@ -67,6 +67,8 @@ INTERFACE
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME}
 PRIVATE
+	-DUNICODE			# define UNICODE for Windows API
+	-D_UNICODE
 PUBLIC
 INTERFACE
 )
@@ -99,7 +101,9 @@ INTERFACE
 
 target_compile_options(${CMAKE_PROJECT_NAME}
 PRIVATE	
-	# $<$<CXX_COMPILER_ID:MSVC>:/DUNICODE>
+	# /utf-8			# Set source and execution character sets to UTF-8 (MSVC)
+	/source-charset:utf-8		# Set source character set to UTF-8 (MSVC)
+	/execution-charset:gbk		# Set execution character set to GBK (MSVC)
 PUBLIC
 INTERFACE
 )
