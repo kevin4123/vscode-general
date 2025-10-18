@@ -102,8 +102,8 @@ INTERFACE
 target_compile_options(${CMAKE_PROJECT_NAME}
 PRIVATE	
 	# /utf-8			# Set source and execution character sets to UTF-8 (MSVC)
-	/source-charset:utf-8		# Set source character set to UTF-8 (MSVC)
-	/execution-charset:gbk		# Set execution character set to GBK (MSVC)
+	$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>		# Set source character set to UTF-8 (MSVC)
+	$<$<CXX_COMPILER_ID:MSVC>:/execution-charset:.936>		# Set execution character set to gb2312 (MSVC)
 PUBLIC
 INTERFACE
 )
